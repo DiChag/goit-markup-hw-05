@@ -10,7 +10,6 @@
   --footer: #2f303a;
 }
 body {
-  padding-top: 80px;
   font-family: Roboto, sans-serif;
   font-size: 14px;
   color: var(--color-text);
@@ -72,8 +71,8 @@ img {
   background-color: rgba(0, 0, 0, 0.2);
 }
 .backdrop.is-hidden {
-  visibility: hidden;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 .modal {
@@ -128,11 +127,11 @@ img {
 /* LOGO Header*/
 
 .header {
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 9;
+  /* z-index: 9; */
 
   /* padding-top: 24px;
   padding-bottom: 25px; */
@@ -635,6 +634,7 @@ img {
 /* BTN */
 
 button {
+  /* padding: 0; */
   cursor: pointer;
 }
 .btn {
@@ -772,4 +772,18 @@ button {
   line-height: 1.55;
   letter-spacing: 0.03em;
   color: var(--white-text);
+}
+
+/* To top */
+
+.to-top {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 70px;
+  height: 70px;
+  font-size: large;
+  border: 2px solid #2196f3;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
 }
