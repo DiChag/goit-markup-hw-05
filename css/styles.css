@@ -59,6 +59,8 @@ img {
   margin-left: auto;
 }
 
+/* 56+5+6 */
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -69,7 +71,10 @@ img {
   height: 100%;
 
   background-color: rgba(0, 0, 0, 0.2);
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .backdrop.is-hidden {
   opacity: 0;
   visibility: hidden;
@@ -79,7 +84,7 @@ img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   width: 528px;
   height: 581px;
@@ -91,6 +96,8 @@ img {
   border-radius: 4px;
 
   opacity: 1;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .send-btn {
   margin: 50px;
@@ -196,6 +203,8 @@ img {
   letter-spacing: 0.02em;
   text-decoration: none;
   color: var(--light-black-text);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav a:hover,
 .site-nav a:focus {
@@ -235,6 +244,8 @@ img {
   text-decoration: none;
   font-weight: 500;
   color: var(--color-text);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact-nav a:hover,
 .contact-nav a:focus {
@@ -472,20 +483,21 @@ img {
   width: 44px;
   height: 44px;
 
+  color: #afb1b8;
+
   border-radius: 50%;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-icon:hover,
 .link-icon:focus {
+  color: #ffffff;
   background-color: var(--color-focus);
 }
 .socials-team {
-  fill: #afb1b8;
-}
-
-.link-icon:hover .socials-team,
-.link-icon:focus .socials-team {
-  fill: #ffffff;
+  fill: currentColor;
 }
 
 /* Clients */
@@ -520,22 +532,28 @@ img {
   width: 170px;
   height: 92px;
 
+  color: #afb1b8;
+
   border: 1px solid #afb1b8;
   border-radius: 4px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-client:hover,
 .link-client:focus {
+  color: var(--color-focus);
   border: 1px solid var(--color-focus);
 }
 .icon-client {
-  fill: #afb1b8;
+  fill: currentColor;
 }
 
-.link-client:hover .icon-client,
+/* .link-client:hover .icon-client,
 .link-client:focus .icon-client {
   fill: var(--color-focus);
-}
+} */
 
 /* Footer */
 
@@ -579,6 +597,8 @@ img {
   letter-spacing: 0.03em;
   text-decoration: none;
   color: var(--secondary-white);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact-footer:hover,
 .contact-footer:focus {
@@ -622,6 +642,8 @@ img {
   height: 44px;
 
   border-radius: 50%;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link-join:hover,
 .link-join:focus {
@@ -649,8 +671,14 @@ button {
   line-height: 1.87;
   letter-spacing: 0.06em;
 
-  background: var(--color-focus);
+  background-color: var(--color-focus);
   color: var(--white-text);
+
+  /* transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero .btn:hover,
 .hero .btn:focus {
@@ -680,7 +708,12 @@ button {
   letter-spacing: 0.03em;
   background: var(--secondary-backgrounds);
   color: var(--black-text);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .btn-portfolio:hover,
 .btn-portfolio:focus {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
@@ -728,12 +761,14 @@ button {
   margin-bottom: 30px;
   /* background-color: tomato; */
 }
-.card a {
-  display: block;
+
+.link-card {
+  display: inline-block;
   text-decoration: none;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.card a:hover {
-  border: 1px solid #eeeeee;
+.link-card:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
@@ -753,25 +788,30 @@ button {
 
 .daddy {
   position: relative;
-}
-.card:hover .menu {
-  display: block;
-  background-color: rgba(33, 150, 243, 0.9);
+  overflow: hidden;
 }
 .menu {
   position: absolute;
   left: 0;
   top: 0;
-  padding: 62px 24px;
   width: 100%;
   height: 100%;
-  display: none;
+  padding: 63px 24px;
+
+  color: var(--white-text);
+  background-color: rgba(33, 150, 243, 0.9);
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.link-card:hover .menu {
+  transform: translateY(0);
+}
+
 .paragraph {
   font-size: 18px;
   line-height: 1.55;
   letter-spacing: 0.03em;
-  color: var(--white-text);
 }
 
 /* To top */
